@@ -58,3 +58,10 @@ def put_articoli(id:str, art: Articolo):
             articolo.model = art.model
             return articolo
     return None
+
+@app.delete("/articoli/{id}")
+def delete_articoli_by_id(id: str):
+    for articolo in articoli:
+        if articolo.id == id:
+            articoli.remove(articolo)
+    return None
