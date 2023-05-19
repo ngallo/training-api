@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>Item Details</title>
+</head>
+<body>
+    <h1></h1>
+    <div id="tag-id"></div>
+    <script>
+        async function logJSONData() {
+            const response = await fetch("http://localhost:8000/shoes");
+            const jsonData = await response.json();
+            myvalue = "<ol>"
+            jsonData.forEach(element => {
+                myvalue = myvalue + `<li>${element.model}</li>`
+            });
+            myvalue = myvalue + '</ol>`'
+            document.getElementById('tag-id').innerHTML = myvalue;
+        }
+        logJSONData()
+    </script>
+</body>
+</html>
